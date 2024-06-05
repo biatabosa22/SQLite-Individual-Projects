@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/ubuntu/Documentos/codeacademy projects/SQL/Project 01 - Stocks" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="900"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainstocks"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="stocks" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="57"/><column index="2" value="146"/><column index="3" value="83"/><column index="4" value="57"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">/*CREATE TABLE stocks (
+/*CREATING DATABASE*/
+
+/*CREATE TABLE stocks (
 	symbol TEXT,
 	name TEXT,
 	datetime TEXT,
@@ -6,179 +8,188 @@
 
 INSERT INTO stocks
 VALUES 
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, strftime('%Y-%m-%d %H:%M:%S', 'now'), 179.62),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, strftime('%Y-%m-%d %H:%M:%S', 'now'), 253.64),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, strftime('%Y-%m-%d %H:%M:%S', 'now'), 269.98),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, strftime('%Y-%m-%d %H:%M:%S', 'now'), 169.30),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, strftime('%Y-%m-%d %H:%M:%S', 'now'), 167.22);
+	("AMZ", "Amazon.com Inc", strftime('%Y-%m-%d %H:%M:%S', 'now'), 179.62),
+	("AXP", "American Express Co", strftime('%Y-%m-%d %H:%M:%S', 'now'), 253.64),
+	("AMGN", "Amgen Inc", strftime('%Y-%m-%d %H:%M:%S', 'now'), 269.98),
+	("AAPL", "Apple Inc", strftime('%Y-%m-%d %H:%M:%S', 'now'), 169.30),
+	("BA", "Boeing Co", strftime('%Y-%m-%d %H:%M:%S', 'now'), 167.22);*/
+
+/* the use of the strftime() function here is only for training, the result was from 2024-04-26 24 */
+	
+	
+/*INSERT INTO stocks
+VALUES
+	("AMZ", "Amazon.com Inc", "2024-04-25 24:00:00", 173.67),
+	("AXP", "American Express Co", "2024-04-25 24:00:00", 237.10),
+	("AMGN", "Amgen Inc", "2024-04-25 24:00:00", 269.38),
+	("AAPL", "Apple Inc", "2024-04-25 24:00:00", 169.89),
+	("BA", "Boeing Co", "2024-04-25 24:00:00", 166.81);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-25 24:00:00&quot;, 173.67),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-25 24:00:00&quot;, 237.10),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-25 24:00:00&quot;, 269.38),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-25 24:00:00&quot;, 169.89),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-25 24:00:00&quot;, 166.81);
-
-INSERT INTO stocks
-VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-24 24:00:00&quot;, 176.59),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-24 24:00:00&quot;, 239.12),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-24 24:00:00&quot;, 273.01),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-24 24:00:00&quot;, 169.02),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-24 24:00:00&quot;, 166.81);
+	("AMZ", "Amazon.com Inc", "2024-04-24 24:00:00", 176.59),
+	("AXP", "American Express Co", "2024-04-24 24:00:00", 239.12),
+	("AMGN", "Amgen Inc", "2024-04-24 24:00:00", 273.01),
+	("AAPL", "Apple Inc", "2024-04-24 24:00:00", 169.02),
+	("BA", "Boeing Co", "2024-04-24 24:00:00", 166.81);
 	
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-23 24:00:00&quot;, 179.54),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-23 24:00:00&quot;, 238.96),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-23 24:00:00&quot;, 273.54),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-23 24:00:00&quot;, 166.90),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-23 24:00:00&quot;, 169.18);
+	("AMZ", "Amazon.com Inc", "2024-04-23 24:00:00", 179.54),
+	("AXP", "American Express Co", "2024-04-23 24:00:00", 238.96),
+	("AMGN", "Amgen Inc", "2024-04-23 24:00:00", 273.54),
+	("AAPL", "Apple Inc", "2024-04-23 24:00:00", 166.90),
+	("BA", "Boeing Co", "2024-04-23 24:00:00", 169.18);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-22 24:00:00&quot;, 177.23),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-22 24:00:00&quot;, 233.00),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-22 24:00:00&quot;, 271.91),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-22 24:00:00&quot;, 165.51),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-22 24:00:00&quot;, 170.48);
+	("AMZ", "Amazon.com Inc", "2024-04-22 24:00:00", 177.23),
+	("AXP", "American Express Co", "2024-04-22 24:00:00", 233.00),
+	("AMGN", "Amgen Inc", "2024-04-22 24:00:00", 271.91),
+	("AAPL", "Apple Inc", "2024-04-22 24:00:00", 165.51),
+	("BA", "Boeing Co", "2024-04-22 24:00:00", 170.48);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-19 24:00:00&quot;, 174.63),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-19 24:00:00&quot;, 231.04),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-19 24:00:00&quot;, 268.93),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-19 24:00:00&quot;, 165.04),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-19 24:00:00&quot;, 169.82);
+	("AMZ", "Amazon.com Inc", "2024-04-19 24:00:00", 174.63),
+	("AXP", "American Express Co", "2024-04-19 24:00:00", 231.04),
+	("AMGN", "Amgen Inc", "2024-04-19 24:00:00", 268.93),
+	("AAPL", "Apple Inc", "2024-04-19 24:00:00", 165.04),
+	("BA", "Boeing Co", "2024-04-19 24:00:00", 169.82);
 	
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-18 24:00:00&quot;, 179.22),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-18 24:00:00&quot;, 217.50),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-18 24:00:00&quot;, 262.75),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-18 24:00:00&quot;, 167.04),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-18 24:00:00&quot;, 170.23);
+	("AMZ", "Amazon.com Inc", "2024-04-18 24:00:00", 179.22),
+	("AXP", "American Express Co", "2024-04-18 24:00:00", 217.50),
+	("AMGN", "Amgen Inc", "2024-04-18 24:00:00", 262.75),
+	("AAPL", "Apple Inc", "2024-04-18 24:00:00", 167.04),
+	("BA", "Boeing Co", "2024-04-18 24:00:00", 170.23);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-17 24:00:00&quot;, 179.22),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-17 24:00:00&quot;, 217.50),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-17 24:00:00&quot;, 262.75),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-17 24:00:00&quot;, 168.00),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-17 24:00:00&quot;, 170.21);
+	("AMZ", "Amazon.com Inc", "2024-04-17 24:00:00", 179.22),
+	("AXP", "American Express Co", "2024-04-17 24:00:00", 217.50),
+	("AMGN", "Amgen Inc", "2024-04-17 24:00:00", 262.75),
+	("AAPL", "Apple Inc", "2024-04-17 24:00:00", 168.00),
+	("BA", "Boeing Co", "2024-04-17 24:00:00", 170.21);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-16 24:00:00&quot;, 183.32),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-16 24:00:00&quot;, 218.34),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-16 24:00:00&quot;, 265.64),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-16 24:00:00&quot;, 169.38),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-16 24:00:00&quot;, 170.55);	
+	("AMZ", "Amazon.com Inc", "2024-04-16 24:00:00", 183.32),
+	("AXP", "American Express Co", "2024-04-16 24:00:00", 218.34),
+	("AMGN", "Amgen Inc", "2024-04-16 24:00:00", 265.64),
+	("AAPL", "Apple Inc", "2024-04-16 24:00:00", 169.38),
+	("BA", "Boeing Co", "2024-04-16 24:00:00", 170.55);	
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-15 24:00:00&quot;, 183.62),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-15 24:00:00&quot;, 218.40),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-15 24:00:00&quot;, 265.51),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-15 24:00:00&quot;, 172.69),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-15 24:00:00&quot;, 167.82);
+	("AMZ", "Amazon.com Inc", "2024-04-15 24:00:00", 183.62),
+	("AXP", "American Express Co", "2024-04-15 24:00:00", 218.40),
+	("AMGN", "Amgen Inc", "2024-04-15 24:00:00", 265.51),
+	("AAPL", "Apple Inc", "2024-04-15 24:00:00", 172.69),
+	("BA", "Boeing Co", "2024-04-15 24:00:00", 167.82);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-12 24:00:00&quot;, 186.13),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-12 24:00:00&quot;, 218.20),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-12 24:00:00&quot;, 267.28),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-12 24:00:00&quot;, 176.55),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-12 24:00:00&quot;, 169.55);
+	("AMZ", "Amazon.com Inc", "2024-04-12 24:00:00", 186.13),
+	("AXP", "American Express Co", "2024-04-12 24:00:00", 218.20),
+	("AMGN", "Amgen Inc", "2024-04-12 24:00:00", 267.28),
+	("AAPL", "Apple Inc", "2024-04-12 24:00:00", 176.55),
+	("BA", "Boeing Co", "2024-04-12 24:00:00", 169.55);
 	
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-11 24:00:00&quot;, 189.05),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-11 24:00:00&quot;, 218.20),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-11 24:00:00&quot;, 270.00),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-11 24:00:00&quot;, 175.04),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-11 24:00:00&quot;, 173.36);
+	("AMZ", "Amazon.com Inc", "2024-04-11 24:00:00", 189.05),
+	("AXP", "American Express Co", "2024-04-11 24:00:00", 218.20),
+	("AMGN", "Amgen Inc", "2024-04-11 24:00:00", 270.00),
+	("AAPL", "Apple Inc", "2024-04-11 24:00:00", 175.04),
+	("BA", "Boeing Co", "2024-04-11 24:00:00", 173.36);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-10 24:00:00&quot;, 185.95),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-10	24:00:00&quot;, 217.65),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-10 24:00:00&quot;, 266.45),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-10 24:00:00&quot;, 167.78),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-10 24:00:00&quot;, 174.63);
+	("AMZ", "Amazon.com Inc", "2024-04-10 24:00:00", 185.95),
+	("AXP", "American Express Co", "2024-04-10	24:00:00", 217.65),
+	("AMGN", "Amgen Inc", "2024-04-10 24:00:00", 266.45),
+	("AAPL", "Apple Inc", "2024-04-10 24:00:00", 167.78),
+	("BA", "Boeing Co", "2024-04-10 24:00:00", 174.63);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-09 24:00:00&quot;, 185.67),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-09	24:00:00&quot;, 219.84),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-09 24:00:00&quot;, 270.36),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-09 24:00:00&quot;, 169.67),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-09 24:00:00&quot;, 178.12);
+	("AMZ", "Amazon.com Inc", "2024-04-09 24:00:00", 185.67),
+	("AXP", "American Express Co", "2024-04-09	24:00:00", 219.84),
+	("AMGN", "Amgen Inc", "2024-04-09 24:00:00", 270.36),
+	("AAPL", "Apple Inc", "2024-04-09 24:00:00", 169.67),
+	("BA", "Boeing Co", "2024-04-09 24:00:00", 178.12);
 	
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-08 24:00:00&quot;, 185.19),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-08	24:00:00&quot;, 224.11),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-08 24:00:00&quot;, 270.36),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-08 24:00:00&quot;, 168.45),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-08 24:00:00&quot;, 181.56);
+	("AMZ", "Amazon.com Inc", "2024-04-08 24:00:00", 185.19),
+	("AXP", "American Express Co", "2024-04-08	24:00:00", 224.11),
+	("AMGN", "Amgen Inc", "2024-04-08 24:00:00", 270.36),
+	("AAPL", "Apple Inc", "2024-04-08 24:00:00", 168.45),
+	("BA", "Boeing Co", "2024-04-08 24:00:00", 181.56);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-05 24:00:00&quot;, 185.07),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-05	24:00:00&quot;, 222.46),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-05 24:00:00&quot;, 269.95),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-05 24:00:00&quot;, 169.58),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-05 24:00:00&quot;, 183.14);
+	("AMZ", "Amazon.com Inc", "2024-04-05 24:00:00", 185.07),
+	("AXP", "American Express Co", "2024-04-05	24:00:00", 222.46),
+	("AMGN", "Amgen Inc", "2024-04-05 24:00:00", 269.95),
+	("AAPL", "Apple Inc", "2024-04-05 24:00:00", 169.58),
+	("BA", "Boeing Co", "2024-04-05 24:00:00", 183.14);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-04 24:00:00&quot;, 180.00),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-04	24:00:00&quot;, 219.59),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-04 24:00:00&quot;, 268.09),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-04 24:00:00&quot;, 168.82),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-04 24:00:00&quot;, 183.29);
+	("AMZ", "Amazon.com Inc", "2024-04-04 24:00:00", 180.00),
+	("AXP", "American Express Co", "2024-04-04	24:00:00", 219.59),
+	("AMGN", "Amgen Inc", "2024-04-04 24:00:00", 268.09),
+	("AAPL", "Apple Inc", "2024-04-04 24:00:00", 168.82),
+	("BA", "Boeing Co", "2024-04-04 24:00:00", 183.29);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-03 24:00:00&quot;, 182.41),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-03	24:00:00&quot;, 226.63),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-03 24:00:00&quot;, 274.42),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-03 24:00:00&quot;, 169.65),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-03 24:00:00&quot;, 184.92);
+	("AMZ", "Amazon.com Inc", "2024-04-03 24:00:00", 182.41),
+	("AXP", "American Express Co", "2024-04-03	24:00:00", 226.63),
+	("AMGN", "Amgen Inc", "2024-04-03 24:00:00", 274.42),
+	("AAPL", "Apple Inc", "2024-04-03 24:00:00", 169.65),
+	("BA", "Boeing Co", "2024-04-03 24:00:00", 184.92);
 	
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-02 24:00:00&quot;, 180.69),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-02	24:00:00&quot;, 225.53),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-02 24:00:00&quot;, 276.21),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-02 24:00:00&quot;, 168.84),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-02 24:00:00&quot;, 188.04);
+	("AMZ", "Amazon.com Inc", "2024-04-02 24:00:00", 180.69),
+	("AXP", "American Express Co", "2024-04-02	24:00:00", 225.53),
+	("AMGN", "Amgen Inc", "2024-04-02 24:00:00", 276.21),
+	("AAPL", "Apple Inc", "2024-04-02 24:00:00", 168.84),
+	("BA", "Boeing Co", "2024-04-02 24:00:00", 188.04);
 
 INSERT INTO stocks
 VALUES
-	(&quot;AMZ&quot;, &quot;Amazon.com Inc&quot;, &quot;2024-04-01 24:00:00&quot;, 180.97),
-	(&quot;AXP&quot;, &quot;American Express Co&quot;, &quot;2024-04-01	24:00:00&quot;, 227.61),
-	(&quot;AMGN&quot;, &quot;Amgen Inc&quot;, &quot;2024-04-01 24:00:00&quot;, 283.04),
-	(&quot;AAPL&quot;, &quot;Apple Inc&quot;, &quot;2024-04-01 24:00:00&quot;, 170.03),
-	(&quot;BA&quot;, &quot;Boeing Co&quot;, &quot;2024-04-01 24:00:00&quot;, 189.50);*/
+	("AMZ", "Amazon.com Inc", "2024-04-01 24:00:00", 180.97),
+	("AXP", "American Express Co", "2024-04-01	24:00:00", 227.61),
+	("AMGN", "Amgen Inc", "2024-04-01 24:00:00", 283.04),
+	("AAPL", "Apple Inc", "2024-04-01 24:00:00", 170.03),
+	("BA", "Boeing Co", "2024-04-01 24:00:00", 189.50);*/
 
 /* What are the distinct stocks in the table?*/
+
 /*SELECT DISTINCT name FROM stocks;*/
 
+/*Amazon.com Inc, American Express Co, Amgen Inc, Apple Inc and Boeing Co*/
+
 /*Query all data for a single stock. Do you notice any overall trends?*/
+
 /*SELECT * FROM stocks
-WHERE symbol = &quot;AXP&quot;;*/
+WHERE symbol = "AXP";*/
 /*The stock price went really up from day 2024-04-19 foward*/
 
 /*Which rows have a price above 100? between 40 to 50, etc?*/
+
 /*SELECT * FROM stocks
-WHERE price &gt; 100;*/
+WHERE price > 100;*/
 /*SELECT * FROM stocks
 WHERE price BETWEEN 40 AND 50;*/ 
 
 /*Sort the table by price. What are the minimum and maximum prices?*/
+
 /*SELECT * FROM stocks
 ORDER BY price DESC;*/
 /*SELECT *, MAX(price) 
@@ -187,41 +198,60 @@ FROM stocks;*/
 FROM stocks;*/
 
 /*Explore using aggregate functions to look at key statistics about the data (e.g., min, max, average).*/
+
 /*SELECT COUNT (*) FROM stocks;*/
 /*SELECT AVG(price) FROM stocks;*/
 
 /*Group the data by stock and repeat. How do the stocks compare to each other?*/
-/*SELECT symbol, name, AVG(price) AS &quot;average price&quot; FROM stocks
+
+/*SELECT symbol, name, AVG(price) AS "average price" FROM stocks
 GROUP BY symbol;*/
 
+/*The higher average prize during tha analyzed period is for the Amgen Inc. and the lowest is for the Apple Inc, being about $100.00 cheaper*/
+
 /*Group the data by day or hour of day. Does day of week or time of day impact prices?*/
+
 /*For Amazon*/
-/*SELECT strftime('%d', datetime) AS &quot;Day&quot;, price FROM stocks
-WHERE symbol = &quot;AMZ&quot;
+
+/*SELECT strftime('%d', datetime) AS "Day", price FROM stocks
+WHERE symbol = "AMZ"
 GROUP BY strftime('%d', datetime);*/
+
 /*For American Express:*/
-/*SELECT strftime('%d', datetime) AS &quot;Day&quot;, price FROM stocks
-WHERE symbol = &quot;AXP&quot;
+
+/*SELECT strftime('%d', datetime) AS "Day", price FROM stocks
+WHERE symbol = "AXP"
 GROUP BY strftime('%d', datetime);*/
+
 /*For Amgen:*/
-/*SELECT strftime('%d', datetime) AS &quot;Day&quot;, price FROM stocks
-WHERE symbol = &quot;AMGN&quot;
+
+/*SELECT strftime('%d', datetime) AS "Day", price FROM stocks
+WHERE symbol = "AMGN"
 GROUP BY strftime('%d', datetime);*/
+
 /*For Apple:*/
-/*SELECT strftime('%d', datetime) AS &quot;Day&quot;, price FROM stocks
-WHERE symbol = &quot;AAPL&quot;
+
+/*SELECT strftime('%d', datetime) AS "Day", price FROM stocks
+WHERE symbol = "AAPL"
 GROUP BY strftime('%d', datetime);*/
+
 /*For Boeing:*/
-/*SELECT strftime('%d', datetime) AS &quot;Day&quot;, price FROM stocks
-WHERE symbol = &quot;BA&quot;
+
+/*SELECT strftime('%d', datetime) AS "Day", price FROM stocks
+WHERE symbol = "BA"
 GROUP BY strftime('%d', datetime);*/
+
+/*For some companies as Boeing and Apple the price doesn't vary much between the days, but companies as American Express shows a bigger difference on their stock price between the days analyzed */
 
 /*Which of the rows have a price greater than the average of all prices in the dataset?*/
+
 /*SELECT * FROM stocks
-WHERE price &gt; (SELECT AVG (price) FROM stocks);*/
+WHERE price > (SELECT AVG (price) FROM stocks);*/
 
 /*In addition to the built-in aggregate functions, explore ways to calculate other key statistics about the data, such as the median or variance*/
+
 /* Median: */
+
 /*SELECT AVG(price) AS median
 FROM (
 	SELECT price FROM stocks
@@ -229,9 +259,60 @@ FROM (
 	LIMIT 2 - (SELECT COUNT (*) FROM stocks) % 2
 	OFFSET (SELECT (COUNT (*)-1)/2 FROM stocks)
 	);*/
-/*Variance*/
-SELECT AVG((price - mean_price) * (price - mean_price)) AS Variance 
-FROM (
-SELECT AVG(price) AS mean_price FROM stocks) AS sub_mean, stocks;
 
-</sql><current_tab id="0"/></tab_sql></sqlb_project>
+/*Variance*/
+
+/*SELECT AVG((price - mean_price) * (price - mean_price)) AS Variance 
+FROM (
+SELECT AVG(price) AS mean_price 
+FROM stocks) 
+AS sub_mean, stocks;*/
+
+/*Let’s refactor the data into 2 tables - stock_info to store general info about the stock
+itself (ie. symbol, name) and stock_prices to store the collected data on price (ie.
+symbol, datetime, price).*/
+
+/*CREATE TABLE stock_info AS 
+SELECT symbol, name 
+FROM stocks;
+
+CREATE TABLE stock_prices AS 
+SELECT symbol, datetime, price
+FROM stocks;*/
+
+/*Instead, join the 2 tables in order to view more information on the stock with each row
+of price.*/
+
+/*SELECT * FROM stock_info
+JOIN stock_prices
+ON stock_prices.symbol = stock_info.symbol;*/ 
+
+/* Add more variables to the stock_info table and update the data (e.g., sector,
+industry, etc). */ 
+
+/*ALTER TABLE stock_info
+ADD COLUMN sector TEXT;*/
+
+/*UPDATE stock_info
+SET sector = "Technology"
+WHERE symbol = "AMZ";
+
+UPDATE stock_info
+SET sector = "Technology"
+WHERE symbol = "AMZ" OR symbol = "AAPL";
+
+UPDATE stock_info
+SET sector = "Finance"
+WHERE symbol = "AXP";
+
+UPDATE stock_info
+SET sector = "Aviation"
+WHERE symbol = "BA";
+
+UPDATE stock_info
+SET sector = "Biotecnology"
+WHERE symbol = "AMGN";
+
+SELECT stock_info.symbol, stock_info.name, stock_info.sector, stock_prices.price FROM stock_info
+JOIN stock_prices	
+ON stock_prices.symbol = stock_info.symbol;*/
