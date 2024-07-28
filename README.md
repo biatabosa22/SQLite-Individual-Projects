@@ -10,3 +10,6 @@ Link: <https://discuss.codecademy.com/t/data-science-independent-project-5-analy
 File 3: Music Store Analisys - This project has as objective to analyze the sales data from a music store through the years.
 Data base: <https://www.sqlitetutorial.net/sqlite-sample-database/>
 Link: <https://discuss.codecademy.com/t/data-science-independent-project-2-explore-a-sample-database/419945/2?_gl=1*cj28lo*_gcl_aw*R0NMLjE3MTIyNDU3NjYuQ2owS0NRanduN213QmhDaUFSSXNBR294amFJdkdzWDdKSVZZazdrTVNzSlNkT3FMVUZOZnNjNkFyNUtkeXhsTEZ1QjJQcmpHMUlYR0VINGFBbkVNRUFMd193Y0I.*_gcl_au*MTY5NDg0NjU5MC4xNzEyMjQ1MDM3*_ga*MTE3MDczNDU3MS4xNzA2MTk5OTE1*_ga_3LRZM6TM9L*MTcxNjc3MTgyMy4yOS4xLjE3MTY3NzQwODEuNjAuMC4w>
+
+File 4: Trend in Home Values - This project has as objective to analyze the home values through the years in US states and do recommendations on where to make real state investiments. 
+Link: <https://discuss.codecademy.com/t/data-science-independent-project-4-home-value-trends/419948>
