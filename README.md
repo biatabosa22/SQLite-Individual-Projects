@@ -13,3 +13,6 @@ Link: <https://discuss.codecademy.com/t/data-science-independent-project-2-explo
 
 File 4: Trend in Home Values - This project has as objective to analyze the home values through the years in US states and do recommendations on where to make real state investiments. 
 Link: <https://discuss.codecademy.com/t/data-science-independent-project-4-home-value-trends/419948>
+
+File 5: Education & Census - This project has as objective to analyze the education proficiency through US states and look out for relations between tests proficiency and census data, such as median household income and zip code.
+Link: <https://discuss.codecademy.com/t/data-science-independent-project-3-education-census-data/419947?_gl=1*1fha6lp*_gcl_aw*R0NMLjE3MTIyNDU3NjYuQ2owS0NRanduN213QmhDaUFSSXNBR294amFJdkdzWDdKSVZZazdrTVNzSlNkT3FMVUZOZnNjNkFyNUtkeXhsTEZ1QjJQcmpHMUlYR0VINGFBbkVNRUFMd193Y0I.*_gcl_au*MTY5NDg0NjU5MC4xNzEyMjQ1MDM3*_ga*MTE3MDczNDU3MS4xNzA2MTk5OTE1*_ga_3LRZM6TM9L*MTcxNjc3MTgyMy4yOS4xLjE3MTY3NzQwOTYuNDUuMC4w>
