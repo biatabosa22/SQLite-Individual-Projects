@@ -1,0 +1,102 @@
+/*How many public high schools are in each zip code? */
+
+/*SELECT zip_code, COUNT(DISTINCT  school_id) FROM public_hs_data
+GROUP BY zip_code;*/
+
+/*in each state?*/
+
+/*SELECT state_code, COUNT (DISTINCT school_id) FROM public_hs_data
+GROUP BY state_code;*/
+
+/*The locale_code column in the high school data corresponds to various levels of urbanization as listed below. 
+Use the CASE statement to display the corresponding locale_text and locale_size in your query result.*/
+
+/*SELECT 
+	locale_code,
+	CASE substr(locale_code, 1, 1)
+	WHEN  "1" THEN "City"
+	WHEN "2" THEN "Surburb"
+	WHEN "3" THEN "Town"
+	WHEN "4" THEN "Rural"
+	END AS locale_text,
+	CASE 
+	WHEN  substr(locale_code, 1, 1) <= "2" AND  substr(locale_code, 2, 1) = "1" THEN "Large"
+	WHEN  substr(locale_code, 1, 1) <= "2" AND  substr(locale_code, 2, 1) = "2" THEN "Midsize"
+	WHEN  substr(locale_code, 1, 1) <= "2" AND  substr(locale_code, 2, 1) = "3" THEN "Small"
+	WHEN  substr(locale_code, 1, 1) > "2" AND  substr(locale_code, 2, 1) = "1" THEN "Fringe"
+	WHEN  substr(locale_code, 1, 1) > "2" AND  substr(locale_code, 2, 1) = "2" THEN "Distant"
+	WHEN  substr(locale_code, 1, 1) > "2" AND  substr(locale_code, 2, 1) = "3" THEN "Remote"
+	END AS locale_size
+FROM public_hs_data;*/
+
+/*What is the minimum, maximum, and average median_household_income of the nation?*/
+
+/*SELECT MIN(median_household_income), MAX(median_household_income), ROUND(AVG(median_household_income), 2) FROM census_data
+WHERE median_household_income != "NULL";*/
+
+/* for each state?*/
+/*SELECT state_code, MIN(median_household_income), MAX(median_household_income), ROUND(AVG(median_household_income), 2) FROM census_data
+WHERE median_household_income != "NULL"
+GROUP BY state_code;*/
+
+/*Do characteristics of the zip-code area, such as median household income, influence students’ performance in high school?*/
+/*SELECT 
+	CASE 
+	WHEN census_data.median_household_income < 50000 THEN " < $50k"
+	WHEN census_data.median_household_income BETWEEN 50000 AND 100000 THEN "$50k - $100k"
+	WHEN census_data.median_household_income > 100000 THEN "> 100k"
+	END AS financial_situation, 
+	AVG(public_hs_data.pct_proficient_math), 
+	AVG(public_hs_data.pct_proficient_reading) FROM census_data
+	JOIN public_hs_data ON public_hs_data.zip_code = census_data.zip_code
+	GROUP BY 1;*/
+	
+/*On average, do students perform better on the math or reading exam? */
+
+/*SELECT AVG(pct_proficient_math), AVG(pct_proficient_reading) FROM public_hs_data;*/
+
+/*Find the number of states where students do better on the math exam, and vice versa.*/
+
+/*WITH proficiency_per_state AS (
+	SELECT state_code,
+	AVG(pct_proficient_math) as math_avg,
+	AVG(pct_proficient_reading) AS reading_avg
+	FROM public_hs_data
+	GROUP BY 1),
+	
+proficiency AS (
+	SELECT 
+		state_code,
+		math_avg,
+		reading_avg,
+		CASE
+		WHEN math_avg > reading_avg THEN "Higher math proficiency"
+		WHEN math_avg < reading_avg THEN "Higher reading proficiency"
+		ELSE "No exam data"
+		END AS better_proficiency
+	FROM proficiency_per_state)
+
+SELECT better_proficiency, COUNT (*) AS states_count FROM proficiency 
+GROUP BY 1;*/
+
+/*What is the average proficiency on state assessment exams for each zip code, and how do they compare to other zip codes in the same state?*/
+
+WITH state_statistics AS (
+	SELECT 
+	state_code,
+	ROUND(AVG(pct_proficient_math),2) AS state_math_avg, MAX(pct_proficient_math) AS state_math_max, MIN(pct_proficient_math) AS state_math_min, 
+	ROUND(AVG(pct_proficient_reading), 2) AS state_reading_avg, MAX(pct_proficient_reading) AS state_reading_max, MIN (pct_proficient_reading) AS state_reading_min
+	FROM public_hs_data
+	WHERE pct_proficient_math != "NULL" AND pct_proficient_reading != "NULL"
+	GROUP BY state_code)
+	
+SELECT 
+	public_hs_data.state_code, 
+	public_hs_data.zip_code,
+	ROUND(AVG(public_hs_data.pct_proficient_math), 2) AS zip_math_avg, 
+	ROUND(AVG(public_hs_data.pct_proficient_reading), 2) AS zip_reading_avg, 
+	state_statistics.state_math_avg, 
+	state_statistics.state_reading_avg
+FROM public_hs_data
+JOIN state_statistics ON state_statistics.state_code = public_hs_data.state_code
+GROUP BY 2;
